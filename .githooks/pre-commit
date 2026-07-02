@@ -1,0 +1,16 @@
+#!/bin/bash
+# Pre-commit: run the fast quality gate (RULES.md R15).
+# Enable once per clone with:  git config core.hooksPath .githooks
+set -u
+
+PY=".venv/bin/python"
+[ -x "$PY" ] || PY="python3"
+
+echo "pre-commit: running fast quality gate..."
+if ! "$PY" scripts/quality_gate.py --fast; then
+  echo ""
+  echo "pre-commit: BLOCKED - the fast quality gate is red (RULES.md R15)."
+  echo "Fix the failures above; do not use --no-verify (the shell guard blocks it anyway)."
+  exit 1
+fi
+exit 0

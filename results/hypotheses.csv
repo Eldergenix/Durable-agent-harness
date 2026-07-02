@@ -1,0 +1,35 @@
+hypothesis,setting,metric,value,lo,hi,n,criterion,verdict,seed,config_id
+H1,budget=18000,QueryAccuracy delta (full-baseline),0.11208644018116508,0.09216460386680918,0.13262764325354262,120,">= +0.15 pp, CI>0",directional,20240601,verdict:H1:budget=18000
+H1,budget=11000,QueryAccuracy delta (full-baseline),0.052452356081557655,0.03240881355455987,0.07197749240665699,120,">= +0.15, CI>0",directional,20240601,verdict:H1:budget=11000
+H1,budget=13000,QueryAccuracy delta (full-baseline),0.05791327431522559,0.0384800849221715,0.07780512372632448,120,">= +0.15, CI>0",directional,20240601,verdict:H1:budget=13000
+H1,budget=15000,QueryAccuracy delta (full-baseline),0.08144903858598421,0.06228996263635611,0.10105977662738358,120,">= +0.15, CI>0",directional,20240601,verdict:H1:budget=15000
+H1,budget=17000,QueryAccuracy delta (full-baseline),0.10329308641553372,0.08291412890487822,0.12339705598620063,120,">= +0.15, CI>0",directional,20240601,verdict:H1:budget=17000
+H1,budget=19000,QueryAccuracy delta (full-baseline),0.11692977340720931,0.0971270920698309,0.13696557859688474,120,">= +0.15, CI>0",directional,20240601,verdict:H1:budget=19000
+H1,budget=21000,QueryAccuracy delta (full-baseline),0.12050989890447422,0.09936964798387132,0.140905032242281,120,">= +0.15, CI>0",directional,20240601,verdict:H1:budget=21000
+H1,budget=24000,QueryAccuracy delta (full-baseline),0.13424980905057388,0.11438569307210465,0.15406242227578743,120,">= +0.15, CI>0",directional,20240601,verdict:H1:budget=24000
+H2,window=450,drop when removing compaction,0.026903201866309952,0.005873646061772862,0.04784612141360759,120,largest drop = compaction,,20240601,verdict:H2:window=450
+H2,window=450,drop when removing episodic,0.018236899156531542,-0.002100651660073597,0.038143176817531155,120,largest drop = compaction,,20240601,verdict:H2:window=450
+H2,window=450,drop when removing semantic,0.0031492470739449036,-0.01523541471469942,0.021869530400079593,120,largest drop = compaction,,20240601,verdict:H2:window=450
+H2,window=450,largest single-component drop,0.026903201866309952,0.005873646061772862,0.04784612141360759,120,compaction has the largest drop,supported,20240601,verdict:H2:window=450
+H2,window=700,drop when removing compaction,0.026800354173472464,0.007271261826331436,0.04671502608400312,120,largest drop = compaction,,20240601,verdict:H2:window=700
+H2,window=700,drop when removing episodic,0.026218076736372126,0.008246742117206036,0.04422592864445093,120,largest drop = compaction,,20240601,verdict:H2:window=700
+H2,window=700,drop when removing semantic,0.016932806459458286,-0.002717136518558858,0.03623304077498937,120,largest drop = compaction,,20240601,verdict:H2:window=700
+H2,window=700,largest single-component drop,0.026800354173472464,0.007271261826331436,0.04671502608400312,120,compaction has the largest drop,supported,20240601,verdict:H2:window=700
+H3,window=700,cross-session delta (episodic-none),0.33097313380628773,0.3128799549729635,0.3487321108405579,120,CI>0,"partially supported (cross-only; within-session neutral, not negative)",20240601,verdict:H3:window=700
+H3,window=700,within-session delta (episodic-none),0.014887566137566135,-0.01316832010582011,0.04550330687830687,120,CI<0 for full support,"partially supported (cross-only; within-session neutral, not negative)",20240601,verdict:H3:window=700
+H4,noise=0.2,marginal semantic value (epi+sem - epi),0.02196381047470002,-0.0033499713509670655,0.0481711647013496,120,sign flip across noise,,20240601,verdict:H4:noise=0.2
+H4,noise=0.35,marginal semantic value (epi+sem - epi),0.012682883891164487,-0.007418524971747242,0.03263708194668982,120,sign flip across noise,,20240601,verdict:H4:noise=0.35
+H4,noise=0.5,marginal semantic value (epi+sem - epi),0.04679250671717053,0.025325773938729708,0.06915285651589341,120,sign flip across noise,,20240601,verdict:H4:noise=0.5
+H4,noise=0.7,marginal semantic value (epi+sem - epi),0.05982527421712592,0.04228596200498054,0.07732561425581269,120,sign flip across noise,,20240601,verdict:H4:noise=0.7
+H4,noise=0.9,marginal semantic value (epi+sem - epi),0.054210006494081926,0.03745031597635418,0.07047554322455966,120,sign flip across noise,,20240601,verdict:H4:noise=0.9
+H4,noise=1.2,marginal semantic value (epi+sem - epi),0.06599505217367618,0.05184854610730914,0.07930331976085539,120,sign flip across noise,,20240601,verdict:H4:noise=1.2
+H4,all noise levels,crossover exists,,,,6,significant + and - regions,refuted (semantic stays additive; no crossover),20240601,verdict:H4:all noise levels
+H5,fault_rate=0.05,step recovery rate / token overhead,1.0,-0.0002644637155254942,,120,>=0.60 recovery at <=0.25 overhead,supported,20240601,verdict:H5:fault_rate=0.05
+H5,fault_rate=0.05,QueryAccuracy delta (on-off),0.015405598735125814,0.0009293790607246883,0.03060092979837925,120,CI>0 (secondary),supported,20240601,verdict:H5:fault_rate=0.05
+H5,fault_rate=0.05,episode-level RecoveryRate (frozen definition),0.0,,,114,reported as defined (see RESULTS note),reported,20240601,verdict:H5:fault_rate=0.05
+H5,fault_rate=0.12,step recovery rate / token overhead,0.9987405541561712,-0.0009272047013433696,,120,>=0.60 recovery at <=0.25 overhead,supported,20240601,verdict:H5:fault_rate=0.12
+H5,fault_rate=0.12,QueryAccuracy delta (on-off),0.03842084882914357,0.019692619100519324,0.05713913523143366,120,CI>0 (secondary),supported,20240601,verdict:H5:fault_rate=0.12
+H5,fault_rate=0.12,episode-level RecoveryRate (frozen definition),0.0,,,120,reported as defined (see RESULTS note),reported,20240601,verdict:H5:fault_rate=0.12
+H5,fault_rate=0.25,step recovery rate / token overhead,0.9791794243723209,-0.002865093497218842,,120,>=0.60 recovery at <=0.25 overhead,supported,20240601,verdict:H5:fault_rate=0.25
+H5,fault_rate=0.25,QueryAccuracy delta (on-off),0.0806221025816004,0.06054672969819096,0.10042206624640987,120,CI>0 (secondary),supported,20240601,verdict:H5:fault_rate=0.25
+H5,fault_rate=0.25,episode-level RecoveryRate (frozen definition),0.0,,,120,reported as defined (see RESULTS note),reported,20240601,verdict:H5:fault_rate=0.25

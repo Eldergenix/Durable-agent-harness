@@ -1,0 +1,8 @@
+# Runtime dependencies for the durable-agent-harness.
+# Pinned to major versions that were validated together.
+numpy>=2.0
+matplotlib>=3.8
+pandas>=2.0
+tabulate>=0.9
+
+# Dev / test (install with: pip install -r requirements-dev.txt)

@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "durable-agent-harness"
+version = "0.1.0"
+description = "A research harness for long-horizon agents: verification loops, checkpoint/rollback, budget-aware planning, failure recovery, and an ablatable memory system."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "durable-agent-harness contributors" }]
+keywords = ["agents", "llm", "memory", "context-management", "evaluation", "ablation"]
+
+dependencies = [
+    "numpy>=2.0",
+    "matplotlib>=3.8",
+    "pandas>=2.0",
+    "tabulate>=0.9",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+openai = ["openai>=1.30"]
+
+[project.scripts]
+dah-ablation = "dah.experiments.run_ablation:main"
+dah-baseline = "dah.experiments.run_baseline:main"
+dah-analyze = "dah.experiments.analyze:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.setuptools.package-data]
+dah = ["py.typed"]

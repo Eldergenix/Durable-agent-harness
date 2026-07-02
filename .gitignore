@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.pyc
+*.egg-info/
+.pytest_cache/
+build/
+dist/
+.DS_Store
+
+# The figures + summary CSVs in results/ are small, reproducible, and serve as
+# the committed artifact of the study, so they are intentionally NOT ignored.
+# (Regenerate any time with `make reproduce`.)

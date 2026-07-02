@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "hooks": {
+    "preToolUse": [
+      {
+        "command": ".cursor/hooks/protect-governance.sh",
+        "timeout": 10,
+        "failClosed": true
+      }
+    ],
+    "beforeShellExecution": [
+      {
+        "command": ".cursor/hooks/shell-guard.sh",
+        "timeout": 10,
+        "failClosed": true
+      }
+    ],
+    "postToolUse": [
+      {
+        "command": ".cursor/hooks/lint-context.sh",
+        "matcher": "Write|Edit|StrReplace|MultiEdit|SearchReplace",
+        "timeout": 30
+      }
+    ],
+    "stop": [
+      {
+        "command": ".cursor/hooks/stop-quality.sh",
+        "timeout": 120,
+        "loop_limit": 3
+      }
+    ]
+  }
+}
